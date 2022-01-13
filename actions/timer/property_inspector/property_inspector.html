@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>$(PluginName) Property Inspector</title>
+		<link rel="stylesheet" href="css/sdpi.css">
+		<link rel="stylesheet" href="css/property-inspector.css">
+	</head>
+	<body>
+		<div class="sdpi-wrapper">
+			<div class="sdpi-item" id="minutes_value">
+				<div class="sdpi-item-label">Minutes</div>
+				<input id="minutesValue" class="sdpi-item-value" type="number" inputmode="numeric" pattern="[0-9]*" min="0" max="99" placeholder="Enter minutes" onchange="setSettings(event.target.value, 'Minutes')" />
+			</div>
+			<div class="sdpi-item" id="seconds_value">
+				<div class="sdpi-item-label">Seconds</div>
+				<input id="secondsValue" class="sdpi-item-value" type="number" inputmode="numeric" pattern="[0-9]*" min="0" max="59" placeholder="Enter seconds" onchange="setSettings(event.target.value, 'Seconds')" />
+			</div>
+		</div>
+		<script src="js/property-inspector.js"></script>
+	</body>
+</html>

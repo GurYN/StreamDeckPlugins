@@ -1,0 +1,63 @@
+{
+  "Actions": [
+    {
+      "Icon": "actions/stopwatch/images/actionIcon",
+      "Name": "Stopwatch",
+      "PropertyInspectorPath": "actions/stopwatch/property_inspector/property_inspector.html",
+      "States": [
+        {
+          "Image": "actions/stopwatch/images/actionDefaultImage",
+          "TitleAlignment": "middle",
+          "FontFamily": "Courier New",
+          "FontSize": "18",
+          "FontStyle": "Bold"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "A simple stopwatch",
+      "UUID": "com.vincidev.timemanagement.action.stopwatchPluginAction"
+    },
+    {
+      "Icon": "actions/timer/images/actionIcon",
+      "Name": "Timer",
+      "PropertyInspectorPath": "actions/timer/property_inspector/property_inspector.html",
+      "States": [
+        {
+          "Image": "actions/timer/images/actionDefaultImage",
+          "TitleAlignment": "middle",
+          "FontFamily": "Courier New",
+          "FontSize": "18",
+          "FontStyle": "Bold"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "A simple timer",
+      "UUID": "com.vincidev.timemanagement.action.timerPluginAction"
+    }
+  ],
+  "Category": "VinciDev",
+  "CategoryIcon": "images/categoryIcon",
+  "Disabled": false,
+  "Author": "VinciDev",
+  "CodePathWin": "TimeManagement.exe",
+  "CodePathMac": "TimeManagement",
+  "Description": "A set of time management actions for your stream deck",
+  "Name": "Time management",
+  "Icon": "images/pluginIcon",
+  "URL": "https://github.com/GurYN/StreamDeckPlugins",
+  "Version": "1.0",
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "4.1"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "10.11"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ]
+}
