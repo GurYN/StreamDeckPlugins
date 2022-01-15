@@ -12,14 +12,10 @@
 		<RuntimeIdentifiers Condition="'$(Configuration)'=='Release' ">win-x64;osx-x64</RuntimeIdentifiers>
 		<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
 	</PropertyGroup>
-
-	<!-- Post build event scripts that deploy to stream deck -->
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)'=='Debug'">
 		<Exec Condition=" '$(OS)' == 'Windows_NT' " Command="powershell -ExecutionPolicy Unrestricted -file &quot;$(ProjectDir)RegisterPluginAndStartStreamDeck.ps1&quot;" />
 		<Exec Condition=" '$(OS)' != 'Windows_NT' " Command="bash $(ProjectDir)RegisterPluginAndStartStreamDeck.sh" />
 	</Target>
-
-	<!--Dependencies-->
 	<ItemGroup>
 		<PackageReference Include="StreamDeckLib" Version="0.*" />
 		<PackageReference Include="StreamDeckLib.Config" Version="0.*" />
@@ -34,8 +30,6 @@
 		<PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
 		<PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
 	</ItemGroup>
-
-	<!--Deployment files that must go with the build executable -->
 	<ItemGroup>
 		<Content Include="manifest.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -116,74 +110,15 @@
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
-
-	<!-- Images that must be deployed with the executable -->
 	<ItemGroup>
-		<Content Include="README.md">
-		</Content>
-	</ItemGroup>
-
-	<!-- Post build scripts that must not be deployed with the executable -->
-	<ItemGroup>
-	  <None Remove="Stopwatch\" />
-	  <None Remove="Stopwatch\property_inspector\css\property-inspector.css" />
-	  <None Remove="Stopwatch\property_inspector\css\sdpi.css" />
-	  <None Remove="Stopwatch\property_inspector\js\property-inspector.js" />
-	  <None Remove="Stopwatch\property_inspector\property_inspector.html" />
-	  <None Remove="actions\" />
-	  <None Remove="actions\Stopwatch\images\actionDefaultImage.png" />
-	  <None Remove="actions\Stopwatch\images\actionDefaultImage%402x.png" />
-	  <None Remove="actions\Stopwatch\images\actionIcon.png" />
-	  <None Remove="actions\Stopwatch\images\actionIcon%402x.png" />
-	  <None Remove="actions\Stopwatch\images\pluginIcon.png" />
-	  <None Remove="actions\Stopwatch\images\pluginIcon%402x.png" />
-	  <None Remove="actions\Timer\" />
-	  <None Remove="actions\Timer\models\" />
-	  <None Remove="images\categoryIcon.png" />
-	  <None Remove="images\categoryIcon%402x.png" />
-	  <None Remove="images\pluginIcon.png" />
-	  <None Remove="images\pluginIcon%402x.png" />
-	  <None Remove="actions\timer\images\actionDefaultImage.png" />
-	  <None Remove="actions\timer\images\actionDefaultImage%402x.png" />
-	  <None Remove="actions\timer\images\actionIcon.png" />
-	  <None Remove="actions\timer\images\actionIcon%402x.png" />
-	  <None Remove="actions\timer\images\" />
-	  <None Remove="actions\timer\property_inspector\" />
-	  <None Remove="actions\stopwatch\property_inspector\css\property-inspector.css" />
-	  <None Remove="actions\stopwatch\property_inspector\css\sdpi.css" />
-	  <None Remove="actions\stopwatch\property_inspector\js\property-inspector.js" />
-	  <None Remove="actions\stopwatch\property_inspector\property_inspector.html" />
-	  <None Remove="actions\timer\property_inspector\css\property-inspector.css" />
-	  <None Remove="actions\timer\property_inspector\css\sdpi.css" />
-	  <None Remove="actions\timer\property_inspector\js\property-inspector.js" />
-	  <None Remove="actions\timer\property_inspector\property_inspector.html" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="actions\stopwatch\" />
-	  <Folder Include="actions\" />
-	  <Folder Include="actions\timer\" />
-	  <Folder Include="actions\timer\models\" />
-	  <Folder Include="actions\timer\images\" />
-	  <Folder Include="actions\timer\property_inspector\" />
-	</ItemGroup>
-	<ItemGroup>
-	  <None Update="actions\stopwatch\property_inspector\css\property-inspector.css">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="actions\stopwatch\property_inspector\css\sdpi.css">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="actions\timer\property_inspector\property_inspector.html">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="actions\timer\property_inspector\js\property-inspector.js">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="actions\timer\property_inspector\css\property-inspector.css">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="actions\timer\property_inspector\css\sdpi.css">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
+		<Folder Include="images\" />
+		<Folder Include="actions\" />
+		<Folder Include="actions\stopwatch\" />
+		<Folder Include="actions\timer\" />
+		<Folder Include="actions\stopwatch\images\" />
+		<Folder Include="actions\stopwatch\property_inspector\" />
+		<Folder Include="actions\timer\models\" />
+		<Folder Include="actions\timer\images\" />
+		<Folder Include="actions\timer\property_inspector\" />
 	</ItemGroup>
 </Project>
