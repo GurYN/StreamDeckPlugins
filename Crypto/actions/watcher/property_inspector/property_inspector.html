@@ -1,38 +1,41 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<title>Crypto Property Inspector</title>
-	<link rel="stylesheet" href="css/sdpi.css">
-	<link rel="stylesheet" href="css/property-inspector.css">
+    <meta charset="utf-8" />
+    <title>Crypto Property Inspector</title>
+    <link rel="stylesheet" href="css/sdpi.css">
+    <link rel="stylesheet" href="css/property-inspector.css">
 </head>
 <body>
-	<div class="sdpi-wrapper">
-		<div class="sdpi-item" id="name_value">
-			<div class="sdpi-item-label">Coin Id</div>
-			<input id="nameValue" class="sdpi-item-value" type="text" placeholder="Enter coin name" onchange="setSettings(event.target.value, 'Name')" required />
-		</div>
-		<div class="sdpi-item">
-			<div class="sdpi-item-label">Help</div>
-			<details class="sdpi-item-value">
-				<summary>How to find Coin Id</summary>
-				<p>You can find Coin Id list <a href="https://github.com/GurYN/StreamDeckPlugins/blob/main/Crypto/utils/coin_list.json" target="_blank">here</a></p>
-			</details>
-		</div>
-		<div class="sdpi-item" id="currency_value">
-			<div class="sdpi-item-label">Currency</div>
-			<select class="sdpi-item-value select" id="currencyValue" onchange="setSettings(event.target.value, 'Currency')" required>
-				<option value="usd">USD</option>
-				<option value="eur">EUR</option>
-				<option value="gbp">GBP</option>
-			</select>
-		</div>
-		<div class="sdpi-item" id="refresh_value">
-			<div class="sdpi-item-label">Refresh Delay</div>
-			<input id="refreshDelayValue" class="sdpi-item-value" type="number" inputmode="numeric" pattern="[0-9]*" min="1" max="60" placeholder="Enter refresh delay in minutes" onchange="setSettings(event.target.value, 'RefreshDelay')" required />
-		</div>
+    <div class="sdpi-wrapper">
+        <details class="message caution">
+            <summary>Do not use Title input</summary>
+        </details>
+        <div class="sdpi-item" id="name_value">
+            <div class="sdpi-item-label">Coin Id</div>
+            <input id="nameValue" class="sdpi-item-value" type="text" placeholder="Enter coin id" onchange="setSettings(event.target.value, 'Name')" required />
+        </div>
+        <div class="sdpi-item">
+            <div class="sdpi-item-label">Help</div>
+            <details class="sdpi-item-value">
+                <summary>How to find Coin Id ?</summary>
+                <p>You can find Coin Id list <a href="https://github.com/GurYN/StreamDeckPlugins/blob/main/Crypto/utils/coin_list.json" target="_blank">here</a></p>
+            </details>
+        </div>
+        <div class="sdpi-item" id="currency_value">
+            <div class="sdpi-item-label">Currency</div>
+            <select class="sdpi-item-value select" id="currencyValue" onchange="setSettings(event.target.value, 'Currency')" required>
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="gbp">GBP</option>
+            </select>
+        </div>
+        <div class="sdpi-item" id="refresh_value">
+            <div class="sdpi-item-label">Refresh Delay</div>
+            <input id="refreshDelayValue" class="sdpi-item-value" type="number" inputmode="numeric" pattern="[0-9]*" min="1" max="60" placeholder="Enter refresh delay in minutes" onchange="setSettings(event.target.value, 'RefreshDelay')" required />
+        </div>
 
-	</div>
-	<script src="js/property-inspector.js"></script>
+    </div>
+    <script src="js/property-inspector.js"></script>
 </body>
 </html>
