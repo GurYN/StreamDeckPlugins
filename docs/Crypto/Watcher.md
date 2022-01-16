@@ -1,13 +1,15 @@
 # 📈 Watcher plugin
 
 ## Description :
+
 <p align="center">
 <img src="../medias/crypto_plugin.png" alt="Crypto Watcher">
 </p>
 
-This plugin display the current value and the 24h change for a specific coin.
+This plugin display the current value and the 24h change for a specific coin. Data can be updated by pressing the configured key in your Stream Deck and using the integrated scheduler.
 
 ## Settings :
+
 <p align="center"><img src="../medias/watcher_settings.png" alt="Watcher Settings"></p>
 
 * Title : Do not use this input

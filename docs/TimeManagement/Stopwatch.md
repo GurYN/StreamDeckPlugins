@@ -2,7 +2,7 @@
 
 ## Description :
 
-This plugin give you a stopwatch usable in your Stream Deck controller.
+This plugin give you a stopwatch usable in your Stream Deck controller. Start & stop the stopwatch by pressing the configured key in your Stream Deck.
 
 ## Settings :
 
