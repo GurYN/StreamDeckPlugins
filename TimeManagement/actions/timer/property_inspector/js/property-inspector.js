@@ -34,7 +34,9 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
 				if (jsonObj.payload.settings.settingsModel.Minutes) {
 					settingsModel.Minutes = jsonObj.payload.settings.settingsModel.Minutes;
 					document.getElementById('minutesValue').value = settingsModel.Minutes;
+				}
 
+				if (jsonObj.payload.settings.settingsModel.Seconds) {
 					settingsModel.Seconds = jsonObj.payload.settings.settingsModel.Seconds;
 					document.getElementById('secondsValue').value = settingsModel.Seconds;
 				}
