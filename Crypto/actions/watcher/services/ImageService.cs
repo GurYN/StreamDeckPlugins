@@ -20,7 +20,7 @@ namespace Crypto.actions.watcher.services
 
         public async Task<string> GetImage()
         {
-            var info = new SKImageInfo(140, 140, SKColorType.Rgba8888, SKAlphaType.Premul);
+            var info = new SKImageInfo(144, 144, SKColorType.Rgba8888, SKAlphaType.Premul);
             var surface = SKSurface.Create(info);
             var canvas = surface.Canvas;
 
@@ -65,7 +65,7 @@ namespace Crypto.actions.watcher.services
                     memStream.Seek(0, SeekOrigin.Begin);
 
                     var icon = SKBitmap.Decode(memStream);
-                    canvas.DrawBitmap(icon, new SKRect(12, 12, 32, 32));
+                    canvas.DrawBitmap(icon, new SKRect(14, 14, 34, 34));
                 };
             }
             catch
@@ -77,8 +77,8 @@ namespace Crypto.actions.watcher.services
         {
             canvas.DrawText(
                 this.Coin.Symbol.ToUpper(),
-                40,
-                28,
+                42,
+                30,
                 new SKPaint
                 {
                     IsAntialias = true,
@@ -102,22 +102,22 @@ namespace Crypto.actions.watcher.services
             
             canvas.DrawText(
                             val.ToString(format),
-                            55,
-                            80,
+                            52,
+                            82,
                             new SKPaint
                             {
                                 IsAntialias = true,
                                 Style = SKPaintStyle.Fill,
                                 Color = SKColors.White,
-                                TextSize = 24
+                                TextSize = 25
                             });
         }
 
         private void drawPositiveArrow(SKCanvas canvas)
         {
             canvas.DrawLine(
-                            new SKPoint(16, 75),
-                            new SKPoint(36, 55),
+                            new SKPoint(17, 79),
+                            new SKPoint(37, 59),
                             new SKPaint
                             {
                                 IsAntialias = true,
@@ -127,8 +127,8 @@ namespace Crypto.actions.watcher.services
                             });
 
             canvas.DrawLine(
-                new SKPoint(26, 56),
-                new SKPoint(37, 56),
+                new SKPoint(27, 60),
+                new SKPoint(38, 60),
                 new SKPaint
                 {
                     IsAntialias = true,
@@ -138,8 +138,8 @@ namespace Crypto.actions.watcher.services
                 });
 
             canvas.DrawLine(
-                new SKPoint(35, 55),
-                new SKPoint(35, 65),
+                new SKPoint(36, 59),
+                new SKPoint(36, 69),
                 new SKPaint
                 {
                     IsAntialias = true,
@@ -152,8 +152,8 @@ namespace Crypto.actions.watcher.services
         private void drawNegativeArrow(SKCanvas canvas)
         {
             canvas.DrawLine(
-                            new SKPoint(16, 55),
-                            new SKPoint(36, 75),
+                            new SKPoint(17, 59),
+                            new SKPoint(37, 79),
                             new SKPaint
                             {
                                 IsAntialias = true,
@@ -163,8 +163,8 @@ namespace Crypto.actions.watcher.services
                             });
 
             canvas.DrawLine(
-                new SKPoint(26, 74),
-                new SKPoint(37, 74),
+                new SKPoint(27, 78),
+                new SKPoint(38, 78),
                 new SKPaint
                 {
                     IsAntialias = true,
@@ -174,8 +174,8 @@ namespace Crypto.actions.watcher.services
                 });
 
             canvas.DrawLine(
-                new SKPoint(35, 65),
-                new SKPoint(35, 75),
+                new SKPoint(36, 69),
+                new SKPoint(36, 79),
                 new SKPaint
                 {
                     IsAntialias = true,
@@ -189,7 +189,7 @@ namespace Crypto.actions.watcher.services
         {
             canvas.DrawText(
                            this.Coin.MarketData.PriceChangePercentage24H.ToString("##0.0")+"%",
-                           28,
+                           29,
                            95,
                            new SKPaint
                            {
@@ -204,8 +204,8 @@ namespace Crypto.actions.watcher.services
         private void drawCandle(SKCanvas canvas)
         {
             canvas.DrawLine(
-                new SKPoint(20, 122),
-                new SKPoint(120, 122),
+                new SKPoint(22, 124),
+                new SKPoint(122, 124),
                 new SKPaint
                 {
                     IsAntialias = true,
@@ -219,8 +219,8 @@ namespace Crypto.actions.watcher.services
             var val = 100 / range * current;
 
             canvas.DrawLine(
-                new SKPoint(20, 122),
-                new SKPoint(Convert.ToSingle(val) + 20, 122),
+                new SKPoint(22, 124),
+                new SKPoint(Convert.ToSingle(val) + 22, 124),
                 new SKPaint
                 {
                     IsAntialias = true,
@@ -235,8 +235,8 @@ namespace Crypto.actions.watcher.services
 
             canvas.DrawText(
               "LOW",
-              31,
-              12,
+              29,
+              16,
               new SKPaint
               {
                   IsAntialias = true,
@@ -252,8 +252,8 @@ namespace Crypto.actions.watcher.services
 
             canvas.DrawText(
               "HIGH",
-              132,
-              17,
+              134,
+              16,
               new SKPaint
               {
                   IsAntialias = true,

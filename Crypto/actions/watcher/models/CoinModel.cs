@@ -6,10 +6,15 @@ namespace Crypto.Actions.Watcher.Models
 {
     public class CoinModel
     {
+        [JsonProperty("id")]
         public string Id { get; set; }
+        [JsonProperty("symbol")]
         public string Symbol { get; set; }
+        [JsonProperty("name")]
         public string Name { get; set; }
+        [JsonProperty("links")]
         public Links Links { get; set; }
+        [JsonProperty("image")]
         public Image Image { get; set; }
         [JsonProperty("market_data")]
         public MarketData MarketData { get; set; }
@@ -19,8 +24,11 @@ namespace Crypto.Actions.Watcher.Models
 
     public class Image
     {
+        [JsonProperty("thumb")]
         public Uri Thumb { get; set; }
+        [JsonProperty("small")]
         public Uri Small { get; set; }
+        [JsonProperty("large")]
         public Uri Large { get; set; }
     }
 
