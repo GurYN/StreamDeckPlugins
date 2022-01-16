@@ -2,7 +2,7 @@
 
 ## Description :
 
-This plugin give you a timer usable in your Stream Deck controller.
+This plugin give you a timer usable in your Stream Deck controller. Start & stop the timer by pressing the configured key in your Stream Deck.
 
 ## Settings :
 
