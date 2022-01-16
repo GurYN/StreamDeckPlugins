@@ -12,10 +12,14 @@
 		<RuntimeIdentifiers Condition="'$(Configuration)'=='Release' ">win-x64;osx-x64</RuntimeIdentifiers>
 		<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
 	</PropertyGroup>
+
+	<!-- Post build event scripts that deploy to stream deck -->
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)'=='Debug'">
 		<Exec Condition=" '$(OS)' == 'Windows_NT' " Command="powershell -ExecutionPolicy Unrestricted -file &quot;$(ProjectDir)RegisterPluginAndStartStreamDeck.ps1&quot;" />
 		<Exec Condition=" '$(OS)' != 'Windows_NT' " Command="bash $(ProjectDir)RegisterPluginAndStartStreamDeck.sh" />
 	</Target>
+
+	<!--Dependencies-->
 	<ItemGroup>
 		<PackageReference Include="StreamDeckLib" Version="0.5.2040" />
 		<PackageReference Include="StreamDeckLib.Config" Version="0.5.2040" />
@@ -29,7 +33,10 @@
 		<PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
 		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
 		<PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
+		<PackageReference Include="SkiaSharp" Version="2.80.3" />
 	</ItemGroup>
+
+	<!--Deployment files that must go with the build executable -->
 	<ItemGroup>
 		<Content Include="manifest.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -37,28 +44,28 @@
 		<Content Include="appsettings.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="actions\stopwatch\property_inspector\css\property-inspector.css">
+		<Content Include="actions\watcher\property_inspector\css\property-inspector.css">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="actions\stopwatch\property_inspector\css\sdpi.css">
+		<Content Include="actions\watcher\property_inspector\css\sdpi.css">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="actions\stopwatch\property_inspector\js\property-inspector.js">
+		<Content Include="actions\watcher\property_inspector\js\property-inspector.js">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="actions\stopwatch\property_inspector\property_inspector.html">
+		<Content Include="actions\watcher\property_inspector\property_inspector.html">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="actions\stopwatch\images\actionDefaultImage.png">
+		<Content Include="actions\watcher\images\actionDefaultImage.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="actions\stopwatch\images\actionDefaultImage%402x.png">
+		<Content Include="actions\watcher\images\actionDefaultImage%402x.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="actions\stopwatch\images\actionIcon.png">
+		<Content Include="actions\watcher\images\actionIcon.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="actions\stopwatch\images\actionIcon%402x.png">
+		<Content Include="actions\watcher\images\actionIcon%402x.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="images\categoryIcon.png">
@@ -67,58 +74,57 @@
 		<Content Include="images\categoryIcon%402x.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="images\pluginIcon.png">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="images\pluginIcon%402x.png">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\timer\images\actionDefaultImage.png">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\timer\images\actionDefaultImage%402x.png">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\timer\images\actionIcon.png">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\timer\images\actionIcon%402x.png">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\stopwatch\property_inspector\css\property-inspector.css">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\stopwatch\property_inspector\css\sdpi.css">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\stopwatch\property_inspector\js\property-inspector.js">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\stopwatch\property_inspector\property_inspector.html">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\timer\property_inspector\css\property-inspector.css">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\timer\property_inspector\css\sdpi.css">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\timer\property_inspector\js\property-inspector.js">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="actions\timer\property_inspector\property_inspector.html">
+		<Content Include="images\notFound.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
+
+	<!-- Images that must be deployed with the executable -->
 	<ItemGroup>
-		<Folder Include="images\" />
-		<Folder Include="actions\" />
-		<Folder Include="actions\stopwatch\" />
-		<Folder Include="actions\timer\" />
-		<Folder Include="actions\stopwatch\images\" />
-		<Folder Include="actions\stopwatch\property_inspector\" />
-		<Folder Include="actions\timer\models\" />
-		<Folder Include="actions\timer\images\" />
-		<Folder Include="actions\timer\property_inspector\" />
+		<Content Include="images/pluginIcon.png">
+				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="images/pluginIcon@2x.png">
+				<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<!-- Property Inspector Files -->
+	<ItemGroup>
+		<Content Include="Crypto.cmd">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<!-- Include the README.md as part of the project for easy reference -->
+	<ItemGroup>
+	  <None Remove="actions\" />
+	  <None Remove="actions\watcher\" />
+	  <None Remove="actions\watcher\property_inspector\css\property-inspector.css" />
+	  <None Remove="actions\watcher\property_inspector\css\sdpi.css" />
+	  <None Remove="actions\watcher\property_inspector\js\property-inspector.js" />
+	  <None Remove="actions\watcher\property_inspector\property_inspector.html" />
+	  <None Remove="actions\watcher\property_inspector\" />
+	  <None Remove="actions\watcher\models\" />
+	  <None Remove="actions\watcher\images\" />
+	  <None Remove="actions\watcher\images\actionDefaultImage.png" />
+	  <None Remove="actions\watcher\images\actionDefaultImage%402x.png" />
+	  <None Remove="actions\watcher\images\actionIcon.png" />
+	  <None Remove="actions\watcher\images\actionIcon%402x.png" />
+	  <None Remove="images\categoryIcon.png" />
+	  <None Remove="images\categoryIcon%402x.png" />
+	  <None Remove="actions\watcher\services\" />
+	  <None Remove="SkiaSharp" />
+	  <None Remove="utils\" />
+	  <None Remove="images\notFound.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="actions\" />
+	  <Folder Include="actions\watcher\" />
+	  <Folder Include="actions\watcher\property_inspector\" />
+	  <Folder Include="actions\watcher\models\" />
+	  <Folder Include="actions\watcher\images\" />
+	  <Folder Include="actions\watcher\services\" />
+	  <Folder Include="utils\" />
 	</ItemGroup>
 </Project>

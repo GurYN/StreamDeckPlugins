@@ -8,7 +8,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BDAACE54-663E-4F24-8B6A-9698E3AF761F}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		CODEOWNERS = CODEOWNERS
+		LICENCE = LICENCE
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto", "Crypto\Crypto.csproj", "{4D423351-FA39-416D-85C6-EF7FFC0B0485}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +24,10 @@ Global
 		{65FA1989-85E6-40C8-A622-8A95487C9F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65FA1989-85E6-40C8-A622-8A95487C9F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65FA1989-85E6-40C8-A622-8A95487C9F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D423351-FA39-416D-85C6-EF7FFC0B0485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D423351-FA39-416D-85C6-EF7FFC0B0485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D423351-FA39-416D-85C6-EF7FFC0B0485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D423351-FA39-416D-85C6-EF7FFC0B0485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
