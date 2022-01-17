@@ -12,20 +12,21 @@
       ],
       "SupportedInMultiActions": false,
       "Tooltip": "The plugin give you real time coin value",
-      "UUID": "com.vincidev.crypto.action.WatcherPluginAction"
+      "UUID": "com.vincidev.crypto.WatcherPlugin"
     }
   ],
   "Category": "VinciDev",
   "CategoryIcon": "images/categoryIcon",
   "Disabled": false,
-  "Author": "VinciDeve",
+  "Author": "VinciDev",
+  "CodePath": "Crypto",
   "CodePathWin": "Crypto.exe",
   "CodePathMac": "Crypto",
   "Description": "A set of crypto actions for your stream deck",
   "Name": "Crypto",
   "Icon": "images/pluginIcon",
   "URL": "https://github.com/GurYN/StreamDeckPlugins",
-  "Version": "1.0",
+  "Version": "0.1",
   "SDKVersion": 2,
   "Software": {
     "MinimumVersion": "4.1"
