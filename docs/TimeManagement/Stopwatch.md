@@ -11,7 +11,3 @@ This plugin give you a stopwatch usable in your Stream Deck controller. Start & 
 </p>
 
 * Title : Do not use this input
-
-## Download :
-
-> Coming soon
