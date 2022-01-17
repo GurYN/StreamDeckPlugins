@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Crypto.Actions.Watcher
 {
-    [ActionUuid(Uuid = "com.vincidev.crypto.action.WatcherPluginAction")]
+    [ActionUuid(Uuid = "com.vincidev.crypto.WatcherPlugin")]
     public class WatcherPluginAction : BaseStreamDeckActionWithSettingsModel<WatcherSettingsModel>
     {
         public override async Task OnKeyUp(StreamDeckEventPayload args)

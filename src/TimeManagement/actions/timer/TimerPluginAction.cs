@@ -5,7 +5,7 @@ using TimeManagement.Actions.Timer.Models;
 
 namespace TimeManagement.Actions.Timer
 {
-    [ActionUuid(Uuid = "com.vincidev.timemanagement.action.timerPluginAction")]
+    [ActionUuid(Uuid = "com.vincidev.timemanagement.timerPlugin")]
     public class TimerPluginAction : BaseStreamDeckActionWithSettingsModel<TimerSettingsModel>
     {
         private bool _isWorking = false;

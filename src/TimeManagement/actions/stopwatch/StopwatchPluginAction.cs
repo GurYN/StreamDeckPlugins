@@ -5,7 +5,7 @@ using StreamDeckLib.Messages;
 
 namespace TimeManagement.Actions.Stopwatch
 {
-    [ActionUuid(Uuid = "com.vincidev.timemanagement.action.stopwatchPluginAction")]
+    [ActionUuid(Uuid = "com.vincidev.timemanagement.stopwatchPlugin")]
     public class StopwatchPluginAction : BaseStreamDeckAction
     {
         private bool _isWorking;
