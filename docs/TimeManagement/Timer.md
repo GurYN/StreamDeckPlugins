@@ -13,7 +13,3 @@ This plugin give you a timer usable in your Stream Deck controller. Start & stop
 * Title : Do not use this input
 * Minutes : minutes of your timer
 * Seconds : seconds of your timer
-
-## Download :
-
-> Coming soon
